@@ -1,3 +1,24 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Poppins:ital,wght@0,500;1,400&display=swap');
+
+
+:root {
+  /* colors */
+  --blue_gradient_nav: #5e9cef;
+  --green_gradient_nav: #97d3b1;
+  --white_app_color: white;
+  --black_app_color: black;
+  --border_distance_container: #73ad21;
+
+
+  /* fonts */
+  --app_titles_font: 'Poppins', sans-serif;
+}
+
+h1{
+  font-family: var(--app_titles_font);
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -20,7 +41,7 @@ code {
   width: 90%;
   margin-top: 13px;
   height: 58vh;
-  margin-left: 12%;
+  margin-left: 7%;
 }
 
 #list-container {
@@ -35,8 +56,8 @@ code {
   overflow: hidden;
   background-image: radial-gradient(
     circle at 139% 41%,
-    #5e9cef 42%,
-    #97d3b1 69%
+    var(--blue_gradient_nav) 42%,
+    var(--green_gradient_nav) 69%
   );
   position: relative;
   top: 0;
@@ -47,7 +68,7 @@ code {
 .navbar a {
   float: right;
   display: block;
-  color: black;
+  color: var(--black_app_color);
   text-align: center;
   margin-left: 5%;
   font-weight: 500;
@@ -57,8 +78,8 @@ code {
 }
 
 .navbar a:hover {
-  background: #ddd;
-  color: black;
+  background: var(--white_app_color);
+  color: var(--black_app_color);
 }
 
 /*  ANIMATION */
@@ -78,8 +99,8 @@ code {
   bottom: 0;
   right: 0;
   width: 300px;
-  background-color: white;
-  border: 3px solid #73ad21;
+  background-color: var(--white_app_color);
+  border: 3px solid var(--border_distance_container);
 }
 
 @keyframes animate-slide-up {
