@@ -11,3 +11,105 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#map {
+  width: 100%;
+  height: 100%;
+}
+.map-container {
+  width: 80%;
+  margin-top: 15px;
+  height: 60vh;
+}
+
+#list-container {
+  margin-left: 16%;
+}
+
+
+#miles-container {
+  margin-left: 35%;
+}
+
+
+
+.navbar {
+  overflow: hidden;
+  background-image: radial-gradient(circle at 139% 41%, #5e9cef 42%, #97d3b1 69%);
+  position: relative;
+  top: 0;
+  width: 100%;
+  padding-right: 7%;
+}
+
+.navbar a {
+  float: right;
+  display: block;
+  color: black;
+  text-align: center;
+  margin-left: 5%;
+  font-weight: 500;
+  padding: 14px 15px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navbar a:hover {
+  background: #ddd;
+  color: black;
+}
+
+/*  ANIMATION */
+.animate {
+  animation-name: animate-fade;
+  animation-duration: 0.7s;
+  animation-delay: .5s;
+  animation-fill-mode: backwards;
+}
+
+.slide-up { 
+	animation-name: animate-slide-up;
+}
+
+div.fixed {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 300px;
+  border: 3px solid #73AD21;
+}
+
+
+
+@keyframes animate-slide-up {
+  0% {
+    opacity: 0;
+    transform: translate(0, 40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+.delay-animation-navbar {
+  animation-delay: 1.2s;
+}
+
+@media screen and (max-width: 600px) {
+
+  #list-container {
+    margin-left: 5%;
+  }
+
+  #miles-container {
+    margin-left: 8%;
+    display: none;
+  }
+
+  div.fixed {
+    bottom: 87%;
+    left: 7%;
+}
+  
+  }
