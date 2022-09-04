@@ -9,7 +9,6 @@ import AirportModel from "../../models/AirportModel";
 import { AirportMap } from "../../components/AirportMap";
 
 export const HomeContainer = () => {
-
   const METERS_ONE_NAUTICAL_MILE = 1852;
   const [selectedAirports, setSelectedAirports] = useState<AirportModel[]>([]);
   const [distanceBetweenAirports, setDistanceBetweenAirports] =
@@ -19,8 +18,10 @@ export const HomeContainer = () => {
   });
 
   useEffect(() => {
-    if (selectedAirports.length === 2) {
+    if (selectedAirports.length === 2 && selectedAirports[0].id !== selectedAirports[1].id) {
       setDistanceBetweenAirports(calculateDistance());
+    }else {
+      setDistanceBetweenAirports(0);
     }
   }, [selectedAirports]);
 
@@ -32,10 +33,12 @@ export const HomeContainer = () => {
   };
 
   const calculateDistance = (): number => {
-   return  (haversine(
-      { lat: selectedAirports[0].lat, lng: selectedAirports[0].lng },
-      { lat: selectedAirports[1].lat, lng: selectedAirports[1].lng }
-    ) / METERS_ONE_NAUTICAL_MILE);
+    return (
+      haversine(
+        { lat: selectedAirports[0].lat, lng: selectedAirports[0].lng },
+        { lat: selectedAirports[1].lat, lng: selectedAirports[1].lng }
+      ) / METERS_ONE_NAUTICAL_MILE
+    );
   };
 
   return (
@@ -58,22 +61,18 @@ export const HomeContainer = () => {
           />
         </Grid>
       </Grid>
-      <Grid container id="miles-container">
-        <Grid item xs={12} md={12}>
-          {/* <h2>Nautical miles: {distanceBetweenAirports} NM</h2> */}
-        </Grid>
-      </Grid>
-
       <Grid
         alignItems="center"
         container
         justifyContent="center"
-        xs={12}
-        md={12}
+       
       >
-        {isLoaded && <AirportMap airports={selectedAirports} />}
+        <Grid item className="map-container"  xs={12}
+        md={12}>
+          {isLoaded && <AirportMap airports={selectedAirports} />}
+        </Grid>
       </Grid>
-      <div className="fixed">Distance: {distanceBetweenAirports} NM</div>
+      <Grid className="fixed-distance">Distance: {distanceBetweenAirports} NM</Grid>
     </>
   );
 };

@@ -47,7 +47,7 @@ export const AutocompletedList = ({
         value: AirportModel | null
       ) => addAirportMark(value)}
       renderOption={(props, option: AirportModel) => (
-        <Box component="li" {...props} key={option.id}>
+        <Box component="li" {...props} key={idList+'_'+option.id}>
           {option.label}
         </Box>
       )}
