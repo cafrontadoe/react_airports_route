@@ -23,6 +23,7 @@ export const HomeContainer = () => {
     }else {
       setDistanceBetweenAirports(0);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedAirports]);
 
   const addAirportMark = (airport: AirportModel) => {
